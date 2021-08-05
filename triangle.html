@@ -1,0 +1,193 @@
+<html>
+<head>
+	<style>
+		* {
+			padding: 0; 
+			margin: 0; 
+			box-sizing: border-box;
+		}
+		
+		section {
+			width: 30%; 
+			min-width: 400px; 
+			position: relative; 
+			top: 10%; 
+			left: 50%; 
+			transform: translateX(-50%);
+		}
+		
+		.triangle {
+			position: relative; 
+			height: 340px;
+			clip-path: polygon(50% 0, 100% 100%, 0 100%);
+			
+		}
+		
+		.triangle div {
+			position: absolute; 
+			width: 100%; 
+			height: 100px; 
+			background-color: red; 
+			color: red;
+			line-height: 100px; 
+			text-align: center; 
+			transition: all .6s ease;
+		}
+		div.top {
+			top: 0; 
+			z-index: 4; 
+		}
+		div.middle {
+			top: 0; 
+			z-index: 3;
+		}
+		div.bottom {
+			top: 0; 
+			z-index: 2; 
+		}
+		
+		.triangle:hover div.top {
+/*			top: 110px; */
+				color: white; 
+		}
+		
+		.triangle:hover div.middle {
+			top: 110px; 
+			background-color: green; 
+			color: white; 
+		}
+		
+		.triangle:hover div.bottom {
+			top: 220px; 
+			background-color: yellow;
+			color: white; 
+		}
+		/* spinner */ 
+		
+		.spinner-wrap {
+			position: absolute; 
+			top: 40%; 
+			left: 50%; 
+			transform: translateX(-50%);
+		}
+		
+		.dot {
+			display: inline-block; 
+			width: 20px; 
+			height: 20px; 
+			border-radius: 20px; 
+			background-color: #666666;
+			margin: 0 auto; 
+		}
+		
+		.dot-left {
+			animation: left 1s linear infinite; 
+			transform-origin: 33px; 
+		}
+		
+		.dot-right {
+			animation: right 1s linear infinite; 
+			transform-origin: -13px;
+		}
+		
+		@keyframes left {
+			0% {
+				
+				transform: rotate(0);
+			}
+			50% {
+				transform: rotate(360deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		
+		/* Customize right and left individually */ 
+		
+		@keyframes right {
+			0% {
+				transform: rotate(0deg);
+				
+			}
+			50% {
+				transform: rotate(360deg);
+			}
+			
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		
+		/* sliding panel */ 
+		.panel {
+			position: relative; 
+			transform: translateX(400px);
+			width: 250px; 
+			height: 250px; 
+			overflow: hidden; 
+		}
+		
+		.inside-panel {
+			position: absolute;
+			top: 0; 
+			left: 0; 
+			bottom: 0; 
+			right: 0; 
+			width: 100%; 
+			height: 100%; 
+			background-color: rgba(250,130,115, 0.7);
+			z-index: 5; 
+			transform: translateY(0%); 
+			transition: .7s ease; 
+			display: flex; 
+			align-items: center; 
+			justify-content: center; 
+		}
+		
+		.panel:hover .inside-panel {
+			transform: translateY(-100%);
+			
+		}
+		
+		.image {
+			position: absolute; 
+			top: 0; 
+			left: 0; 
+			bottom: 0; 
+			right: 0; 
+			width: 100%; 
+			height: 100%; 
+			z-index:2;
+		}
+		
+			
+	</style>
+	<body>
+		
+		<section>
+			<div class="triangle">
+				<div class="top">Top</div>
+				<div class="middle">Middle</div>
+				<div class="bottom">Bottome</div>
+			</div>
+		</section>
+		
+		<main class="spinner-wrap">
+			<div class="dot dot-left"></div>
+			<div class="dot"></div>
+			<div class="dot dot-right"></div>
+		</main>
+		
+		<hr>
+		
+		<div class="panel">
+			<div class="inside-panel">
+				Content of the inside panel
+			</div>
+			<img class="image" src="bozena.png" alt="bozena">
+		</div>
+		
+	</body>
+</head>
+</html>
